@@ -1,0 +1,71 @@
+﻿@using UrunSatisPortali.Models;
+@model List<Urun>
+
+@{
+    ViewData["Title"] = "Urunler";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+
+<h1>Urunler</h1>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Urun AD</th>
+        <th>Etiket NO</th>
+        <th>Miktar</th>
+        <th>Kategoriler</th>
+        <th>Fiyat</th>
+        <th>Resim</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.urunID </td>
+            <td>@x.urunAD</td>
+            <td>@x.urunETIKETNO</td>
+            <td>@x.urunSTOCK</td>
+            <td>@x.kategori.kategoriAD</td>
+            <td>@x.kategoriFiyat₺</td>
+            <td><img src="~/img/profile/@x.resim" style="width:150px; height:100px;" /></td>
+            <td><a href="#" class="btn btn-danger deleteBtn" data-urunid="@x.urunID">Sil</a></td>
+            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a asp-controller="Admin" asp-action="UrunEkle" class="btn btn-primary">Yeni Urun</a>
+<!-- jQuery kütüphanesini dahil etme -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Silme işlemi için JavaScript -->
+<script>
+    $(document).ready(function () {
+        var deleteUrl = "/Admin/UrunSil/";
+        var urunIdToDelete;
+
+        // Silme butonuna tıklandığında alert ile onay mesajı göster
+        $('.deleteBtn').on('click', function () {
+            urunIdToDelete = $(this).data('urunid');
+            var confirmDelete = confirm("Ürünü silmek istediğinizden emin misiniz?");
+
+            if (confirmDelete) {
+                // Silme işlemi onaylandığında Ajax çağrısı yap
+                $.ajax({
+                    type: "POST",
+                    url: deleteUrl + urunIdToDelete,
+                    success: function (result) {
+                        location.reload();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        });
+    });
+</script>

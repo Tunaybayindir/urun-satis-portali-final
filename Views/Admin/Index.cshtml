@@ -1,0 +1,23 @@
+﻿@using UrunSatisPortali.Models;
+@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+<table class="table table-bordered mb-5">
+    <tr>
+        <th>Adı</th>
+        <th>Email</th>
+        <th>Telefon Numarası</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.UserName </td>
+            <td>@x.Email</td>
+            <td>@x.PhoneNumber</td>
+        </tr>
+    }
+
+</table>

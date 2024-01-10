@@ -1,0 +1,31 @@
+﻿@using UrunSatisPortali.Models;
+@model List<Urun>
+
+@{
+    ViewData["Title"] = "Yeni Kategori";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+
+<h1>KategoriDetay</h1>
+
+<hr />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>AD</th>
+        <th>Stok</th>
+        <th>Etiket NO</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.urunID</td>
+            <td>@x.urunAD</td>
+            <td>@x.urunSTOCK</td>
+            <td>@x.urunETIKETNO</td>
+        </tr>
+    }
+</table>

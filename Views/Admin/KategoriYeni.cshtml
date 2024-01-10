@@ -1,0 +1,21 @@
+﻿@using UrunSatisPortali.Models;
+@model List<Kategori>
+
+@{
+    ViewData["Title"] = "KategoriGetir";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+
+<h1>Yeni Kategori</h1>
+
+<hr />
+
+<form method="post">
+    <div class="mb-3">
+        <label>Kategori Adı:</label>
+        <input name="kategoriAD" class="form-control" />
+    </div>
+    <button class="btn btn-info">Kategori Ekle</button>
+
+</form>

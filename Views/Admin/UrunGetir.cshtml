@@ -1,0 +1,27 @@
+﻿@model UrunSatisPortali.Models.Urun;
+
+@{
+    ViewData["Title"] = "UrunGetir";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+
+
+<h1>Urun Güncelle</h1>
+<hr />
+@using (Html.BeginForm("UrunGuncelle", "Admin", FormMethod.Post))
+{
+    <b>Yeni Urun ID</b>
+    @Html.TextBoxFor(x => x.urunID, new { @class = "form-control" })
+    <br />
+    <b>Yeni Urun Adı</b>
+    @Html.TextBoxFor(x => x.urunAD, new { @class = "form-control" })
+    <br />
+    <b>Yeni Etiket NO</b>
+    @Html.TextBoxFor(x => x.urunETIKETNO, new { @class = "form-control" })
+    <br />
+    <b>Yenı Stok Miktarı</b>
+    @Html.TextBoxFor(x => x.urunAD, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Urun Ekle</button>
+}

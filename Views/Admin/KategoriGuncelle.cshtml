@@ -1,0 +1,19 @@
+﻿@model UrunSatisPortali.Models.Kategori;
+
+@{
+    ViewData["Title"] = "Yeni Kategori";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+<h1>Kategori Güncelle</h1>
+<hr />
+@using (Html.BeginForm("DepartmanGuncelle", "depart", FormMethod.Post))
+{
+    <b>Kategori ID</b>
+    @Html.TextBoxFor(x => x.kategoriID, new { @class = "form-control" })
+    <br />
+    <b>Kategori Adı</b>
+    @Html.TextBoxFor(x => x.kategoriAD, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kategori Güncelle</button>
+}

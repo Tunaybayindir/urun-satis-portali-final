@@ -1,0 +1,41 @@
+﻿@model UrunSatisPortali.Models.urunEkle;
+
+
+@{
+    ViewData["Title"] = "UrunEkle";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+<h1>Yeni ürün</h1>
+<hr />
+
+<form class="form-group" method="post" enctype="multipart/form-data">
+
+    <b>URUN ADI</b>
+    @Html.TextBoxFor(x => x.urunAD, new { @class = "form-control" })
+    <br />
+    <b>ETİKET NUMARASI</b>
+    @Html.TextBoxFor(x => x.urunETIKETNO, new { @class = "form-control" })
+    <br />
+    <b>STOK</b>
+    @Html.TextBoxFor(x => x.urunSTOCK, new { @class = "form-control" })
+    <br />
+    <b>Açıklama</b>
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    <b>Fiyat</b>
+    @Html.TextBoxFor(x => x.kategoriFiyat, new { @class = "form-control" })
+    <br />
+    
+    <b>Kategoriler</b>
+    @Html.DropDownListFor(x => x.kategoriID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    <b>Resim Ekle</b>
+    <br />
+    <input  name="resim" type="file">
+    <br />
+    <br />
+    <br />
+
+    <button class="btn btn-info">Urun Ekle</button>
+</form>

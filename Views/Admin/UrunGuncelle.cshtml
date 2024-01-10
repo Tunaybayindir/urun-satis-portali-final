@@ -1,0 +1,29 @@
+﻿@model UrunSatisPortali.Models.Urun;
+
+@{
+    ViewData["Title"] = "Yeni Kategori";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+
+<h1>Urun Güncelle</h1>
+<hr />
+@using (Html.BeginForm("UrunGuncelle", "depart", FormMethod.Post))
+{
+    <b>Ürün ID</b>
+    @Html.TextBoxFor(x => x.urunID, new { @class = "form-control" })
+    <br />
+    <b>Ürün Adı</b>
+    @Html.TextBoxFor(x => x.urunAD, new { @class = "form-control" })
+    <br />
+    <b>Ürün Etiket NO</b>
+    @Html.TextBoxFor(x => x.urunETIKETNO, new { @class = "form-control" })
+    <br />
+    <b>Yeni Stok Miktarı</b>
+    @Html.TextBoxFor(x => x.urunSTOCK, new { @class = "form-control" })
+    <br />
+    <b>Yeni Ürün Kategori</b>
+    @Html.DropDownListFor(x => x.kategori.kategoriID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Ürün Güncelle</button>
+}

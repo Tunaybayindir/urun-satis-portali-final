@@ -1,0 +1,31 @@
+﻿@using UrunSatisPortali.Models;
+@model List<Kategori>
+@{
+    ViewData["Title"] = "Kategori";
+    Layout = "~/Views/Home/Admin.cshtml";
+}
+
+<h1>Kategoriler</h1>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.kategoriID </td>
+            <td>@x.kategoriAD</td>
+            <td><a href="/Admin/KategoriSil/@x.kategoriID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/kategoriGetir/@x.kategoriID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Admin/KategoriDetay/@x.kategoriID" class="btn btn-default" style="background-color:#dee61d">Detaylar</a></td>
+        </tr>
+    }
+
+</table>
+<a asp-controller="Admin" asp-action="KategoriYeni" class="btn btn-primary">Yeni Kategori</a>

@@ -1,0 +1,36 @@
+﻿@using UrunSatisPortali.Models;
+@model List<Urun>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron bg-light text-dark">
+    <div class="container">
+        <br />
+        <h1 class="display-4">Hoşgeldiniz @User.Identity.Name</h1>
+        <p class="lead"></p>
+        <hr class="my-4">
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+<div class="container mt-2 mb-4">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card flex-column" style="width: 300px; height:500px;">
+                    <img src="~/img/profile/@item.resim" style="width: 300px; height: 300px;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.urunAD</h5>
+                        <p class="card-text">@item.Aciklama</p>
+                        <p>@item.kategoriFiyat₺</p>
+                        <a href="#" class="btn btn-primary">Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
